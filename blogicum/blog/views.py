@@ -1,14 +1,15 @@
 from django.shortcuts import render
-from django.urls import path
 
-from . import views
-# Create your views here.
+def index(request):
+    template = 'index.html'
+    return render(request, template)
 
 
-urlpatterns = [
+def post_detail(request, id ):
+    template = 'detail.html'
+    return render(request,template)
 
-    path('', views.index()),
-    path('posts/<int:id>', views.post_detail()),
-    path('category/<slug:category_slug>/', views.category_post())
 
-]
+def category_posts(request, category_slug):
+    template = 'category_posts'
+    return render(request, template)
